@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<title>CPS 630 Project</title>		
+	</head>
+
+	<body>
+	    	<script src="/socket.io/socket.io.js"></script>
+    		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+		
+		<header class="flex-container">
+			<h1>CPS 630 Project</h1>
+			<nav class="flex-item">
+				<ul class="flex-list">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Messages</a></li>
+					<li><a href="#">Tweet</a></li>
+					<li><div class="container-4"><input type="search" id="search" placeholder="Search..." />
+					    <button class="icon"><i class="fa fa-search"></i></button>
+					  </div></li>
+				</ul>
+			</nav>
+		</header>
+
+		<form action="http://127.0.0.1:8081/process_post" method="POST">
+		What to Search For: <input type="text" name="keyword">  <br>
+		How Many Tweets?: <input type="text" name="counts"> <br>
+		<input type="submit" value="Submit">
+
+		<script>
+		var socket = io.connect('http://127.0.0.1:8081');
+		socket.on('user', function(tweet){
+		$('#tweetd').after( '<div class="tweetd">User: &nbsp &nbsp &nbsp &nbsp'+ tweet+'</div>');
+		});
+		socket.on('text', function(tweettext){
+		    $('#tweetd').after('<div class="tweettext">Tweeted: ' +tweettext+ '</div>');
+		});
+		socket.on('created', function(tweetdate){
+		    $('#tweetd').after('<div class="tweetdate">Created: &nbsp' +tweetdate+ '</div>' + '<br>');
+		});
+		</script>
+		
+		<div class="content">
+			<div class="col span_1_of_4">
+				<div class="user" id=tweetd>@User123</div>
+				<div class="text" id=tweettext>This is placeholder text, it will be changed.</div>
+				<div class="date" id=tweetdate>2:53 PM - September 5, 2016</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
