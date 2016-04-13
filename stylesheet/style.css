@@ -160,6 +160,7 @@ li {
 
   -webkit-flex-flow: column wrap;
   justify-content: flex-start;
+  
 }
 
 .headline 
@@ -176,7 +177,7 @@ li {
 }
 
 .user {
-	color: #ffffff;
+	color: rgb(0,0,0);
 	background: #015a9c;
 	font-size: 20px;
 	width: 100%;
@@ -199,9 +200,9 @@ li {
 }
 
 .tweetd {
-	color: #000000;
+	color: #ffffff;
 	background: #015a9c;
-	font-size: 25px;
+	font-size: 20px;
 	padding: 5px;
 	margin: 5px;
 }
