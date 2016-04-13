@@ -1,0 +1,361 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+
+background: #ffffff;
+font-family: 'Open Sans', sans-serif;
+color: #333333;
+margin: 0;
+padding: 0;
+}
+
+
+p
+{
+line-height: 25px;
+background: #fffeff;
+padding: 7px;
+margin: 0px;
+font-size: 12px;
+}
+
+
+h1 {
+	color: #edb210;
+	padding: 0 0 0 20;
+}
+
+
+.flex-container { 
+	background-color:#015a9c;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	
+	-webkit-flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+li {
+	text-color: #edb210;
+}
+
+.container-4{
+  overflow: hidden;
+  width: 200px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.container-4 input#search{
+  width: 200px;
+  height: 25px;
+  background: #fff;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #fff;
+  padding-left: 15px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.container-4 input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+ 
+.container-4 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+ 
+.container-4 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+ 
+.container-4 input#search:-ms-input-placeholder {  
+   color: #65737e;  
+}
+
+.container-4 button.icon{
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+ 
+  border: none;
+  background: #232833;
+  height: 25px;
+  width: 25px;
+  color: #4f5b66;
+  opacity: 0;
+  font-size: 10pt;
+ 
+  -webkit-transition: all .55s ease;
+  -moz-transition: all .55s ease;
+  -ms-transition: all .55s ease;
+  -o-transition: all .55s ease;
+  transition: all .55s ease;
+}
+
+.container-4:hover button.icon, .container-4:active button.icon, .container-4:focus button.icon{
+  outline: none;
+  opacity: 1;
+  margin-left: -25px;
+}
+ 
+.container-4:hover button.icon:hover{
+  background: white;
+}
+	
+.flex-item {
+	align-self: center;
+	color: #edb210;
+	font-size: 15px;
+
+	padding: 0px 0px 0px 10px;
+
+}
+
+
+.flex-list{
+	list-style: none;
+	color: #edb210;
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-flex-flow: column wrap;
+	align-self: center;
+	justify-content: center;
+	padding: 0;
+	margin: 0;
+}
+
+.flex-list a{
+	text-decoration: none;
+	display: block;
+	align-self: center;
+}
+
+.content {
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+	margin: 10px;
+	padding: 0;
+
+  -webkit-flex-flow: column wrap;
+  justify-content: flex-start;
+}
+
+.headline 
+{
+	background: #fffeff;
+	margin: 0px;
+	padding: 7px;
+}
+
+.cover{
+	width: 100%;
+	padding: 0 5px 0 5px;
+	background-color: #fffeff;
+}
+
+.user {
+	color: #ffffff;
+	background: #015a9c;
+	font-size: 20px;
+	width: 100%;
+	padding: 5px;
+
+}
+
+.text {
+	color: #000000;
+	font-size: 15px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.date {
+	color: #555555;
+	font-size: 11px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.tweetd {
+	color: #000000;
+	background: #015a9c;
+	font-size: 25px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.tweettext {
+	color: #000000;
+	font-size: 25px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.tweetdate {
+	color: #000000;
+	font-size: 25px;
+	padding: 5px;
+	margin: 5px;
+}	
+
+
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 3px 3px 3px 3px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+background: #ffffff;
+	padding: 0px;
+	margin: 5px;
+border-radius: 4px;
+
+  -webkit-flex-flow: column wrap;
+  justify-content: flex-start;
+	margin: 1% 0 1% 0;
+}
+.col:first-child { margin-left: 0; }
+
+/* For mobile phones: */
+[class*="span_"] {
+	width: 100%;
+	
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px){
+	.span_4_of_4, .span_3_of_4 , .span_2_of_4, .span_1_of_4 {
+		width: 100%;
+	}
+	.flex-container { 
+  
+	  display: -webkit-box;
+	  display: -moz-box;
+	  display: -ms-flexbox;
+	  display: -webkit-flex;
+	  display: flex;
+
+	  -webkit-flex-flow: column wrap;
+	  justify-content: center;
+	  align-items: baseline;
+	}
+	
+	.flex-item {
+		align-self: center;
+		padding-left: 20px;
+	}
+	
+	.flex-list{
+		list-style: none;
+
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+
+		-webkit-flex-flow: row wrap;
+		justify-content: space-around;
+		align-items: center;
+	}
+	
+	.flex-list a{
+		text-decoration: none;
+		display: block;
+		padding: 0px 10px 20px 10px;
+		color: white;
+		
+	}
+
+}
+
+@media only screen and (min-width: 768px) {
+	
+	.flex-container { 
+  
+	  display: -webkit-box;
+	  display: -moz-box;
+	  display: -ms-flexbox;
+	  display: -webkit-flex;
+	  display: flex;
+
+	  -webkit-flex-flow: row wrap;
+	  justify-content: space-between;
+	  align-items: baseline;
+	}
+	
+	.flex-item {
+		align-self: baseline;
+		padding-left: 20px;
+	}
+	
+	.flex-list{
+		list-style: none;
+
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+
+		-webkit-flex-flow: row wrap;
+		justify-content: flex-start;
+		align-items: baseline;
+	}
+	
+	.flex-list a{
+		text-decoration: none;
+		display: block;
+		padding: 5px 40px 5px 0px;
+		color: white;
+		align-self: left;
+	}
+	
+	.content {
+		display: -webkit-box;
+	  display: -moz-box;
+	  display: -ms-flexbox;
+	  display: -webkit-flex;
+	  display: flex;
+		
+	  -webkit-flex-flow: row wrap;
+	  justify-content: flex-start;
+	}
+	
+	.span_4_of_4 {width: 100%; margin: 1% 0 1% 1.6%;}
+	.span_3_of_4 {width: 74.6%; margin: 1% 0 1% 1.6%;}
+	.span_2_of_4 {width: 49.2%; margin: 1% 0 1% 1.6%;}
+	.span_1_of_4 {width: 23.8%; margin: 1% 0 1% 1.6%;}
+	
+	
+}
