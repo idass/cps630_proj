@@ -27,7 +27,7 @@
 		<form action="http://127.0.0.1:8081/process_post" method="POST">
 		What to Search For: <input type="text" name="keyword">  <br>
 		How Many Tweets?: <input type="text" name="counts"> <br>
-		<input type="submit" value="Submit">
+		<input type="submit" name="go" value="Submit">
 
 		<script>
 		var socket = io.connect('http://127.0.0.1:8081');
@@ -40,6 +40,13 @@
 		socket.on('created', function(tweetdate){
 		    $('#tweetd').after('<div class="tweetdate">Created: &nbsp' +tweetdate+ '</div>' + '<br>');
 		});
+		socket.on('you', function(post){
+		$('#yourname').after( '<div class="yourname">User: &nbsp &nbsp &nbsp &nbsp'+ post +'</div>');
+		});
+		socket.on('posted', function(posttext){
+		    $('#yourtweet').after('<div class="yourtweet">Tweeted: ' +posttext+ '</div>');
+		});
+		
 		</script>
 		
 		<div class="content">
@@ -47,6 +54,17 @@
 				<div class="user" id="tweetd"></div>
 				<div class="text" id="tweettext"></div>
 				<div class="date" id="tweetdate"></div>
+			</div>
+		</div>
+		
+		<form action="http://127.0.0.1:8081/process_post2" method="POST">
+		What to post?: <input type="text" name="postTweet">  <br>
+		<button type="submit" name="go" value="Post">Post!</button>
+		
+		<div class="content">
+			<div class="col span_1_of_4">
+				<div class="you" id="yourname"></div>
+				<div class="posted" id="yourtweet"></div>
 			</div>
 		</div>
 		
