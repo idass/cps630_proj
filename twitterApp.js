@@ -56,18 +56,18 @@ io.sockets.on('connection', function (socket) {
   
   
     T.get('search/tweets', { q: search, count: cnt }, function(err, data, response) {
-    // Do something with the JSON data returned.
-    // (Consult Twitter's documentation on the format: 
-    // https://dev.twitter.com/rest/reference/get/search/tweets)
-       //console.log(data); 
-
     
         for (var i = 0; i < cnt; i++){
+            if (data.statuses[i] == undefined) {
+                
+            console.log("undefined tweet error")
             
+            }else{
+                
             io.sockets.emit('created',JSON.stringify(data.statuses[i].created_at));
             io.sockets.emit('text',JSON.stringify(data.statuses[i].text));
             io.sockets.emit('user',JSON.stringify(data.statuses[i].user.screen_name));
-        
+            }
         } 
 
     });
