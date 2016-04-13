@@ -22,7 +22,7 @@ server.listen(8081);
 
 
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('style.css'));
 
 
 
@@ -68,9 +68,8 @@ io.sockets.on('connection', function (socket) {
             io.sockets.emit('text',JSON.stringify(data.statuses[i].text));
             io.sockets.emit('user',JSON.stringify(data.statuses[i].user.screen_name));
         
-        }
-    
-        
+        } 
 
     });
+    
  });
