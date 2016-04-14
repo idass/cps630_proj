@@ -28,7 +28,15 @@
 		<form action="http://127.0.0.1:8081/process_post" method="POST">
 		What to Search For: <input type="text" name="keyword">  <br>
 		How Many Tweets?: <input type="text" name="counts"> <br>
-		<input type="submit" name="go" value="Submit">
+		<input type="submit" name="go" value="Search"> <br><br>
+		
+		<form action="http://127.0.0.1:8081/process_post3" method="POST">
+		Who to Search For: <input type="text" name="name">  <br>
+		<input type="submit" name="go" value="SearchUser"> <br><br>
+		
+		<form action="http://127.0.0.1:8081/process_post2" method="POST">
+		What to post?: <input type="text" name="postTweet">  <br>
+		<button type="submit" name="go" value="Post">Post!</button>
 
 		<script>
 		var socket = io.connect('http://127.0.0.1:8081');
@@ -47,6 +55,30 @@
 		socket.on('posted', function(posttext){
 		    $('#yourtweet').after('<div class="yourtweet">Tweeted: ' +posttext+ '</div>');
 		});
+		socket.on('name', function(getName){
+		    $('#Name').after('<div class="Name">User: ' +getName+ '</div>' + '<br>');
+		});
+		socket.on('screenName', function(getSName){
+		    $('#sName').after('<div class="sName">Screen Name: ' +getSName+ '</div>' + '<br>');
+		});
+		socket.on('location', function(getLoc){
+		    $('#loc').after('<div class="loc">Location: ' +getLoc+ '</div>' + '<br>');
+		});
+		socket.on('description', function(getDesc){
+		    $('#desc').after('<div class="desc">Description: ' +getDesc+ '</div>' + '<br>');
+		});
+		socket.on('friends', function(getFriends){
+		    $('#friends').after('<div class="friends">Friends: ' +getFriends+ '</div>' + '<br>');
+		});
+		socket.on('followers', function(getFollow){
+		    $('#follow').after('<div class="follow">followers: ' +getFollow+ '</div>' + '<br>');
+		});
+		socket.on('lastStat', function(getLast){
+		    $('#last').after('<div class="last">Last Status: ' +getLast+ '</div>' + '<br>');
+		});
+		socket.on('accCreate', function(getAccC){
+		    $('#accCreated').after('<div class="accCreated">Account Created: ' +getAccC+ '</div>' + '<br>');
+		});
 		
 		</script>
 		
@@ -58,9 +90,20 @@
 			</div>
 		</div>
 		
-		<form action="http://127.0.0.1:8081/process_post2" method="POST">
-		What to post?: <input type="text" name="postTweet">  <br>
-		<button type="submit" name="go" value="Post">Post!</button>
+		<div class="content">
+			<div class="col span_1_of_4">
+				<div class="name" id="Name"></div>
+				<div class="screenName" id="sName"></div>
+				<div class="location" id="loc"></div>
+				<div class="description" id="desc"></div>
+				<div class="friends" id="friends"></div>
+				<div class="followers" id="follow"></div>
+				<div class="statuses" id="last"></div>
+				<div class="created" id="accCreated"></div>
+			</div>
+		</div>
+		
+		
 		
 		<div class="content">
 			<div class="col span_1_of_4">
