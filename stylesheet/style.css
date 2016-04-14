@@ -354,9 +354,9 @@ border-radius: 4px;
 	}
 	
 	.span_4_of_4 {width: 100%; margin: 1% 0 1% 1.6%;}
-	.span_3_of_4 {width: 74.6%; margin: 1% 0 1% 1.6%;}
-	.span_2_of_4 {width: 49.2%; margin: 1% 0 1% 1.6%;}
-	.span_1_of_4 {width: 23.8%; margin: 1% 0 1% 1.6%;}
+	.span_3_of_4 {width: 100%; margin: 1% 0 1% 1.6%;}
+	.span_2_of_4 {width: 100%; margin: 1% 0 1% 1.6%;}
+	.span_1_of_4 {width: 100%; margin: 1% 0 1% 1.6%;}
 	
 	
 }
