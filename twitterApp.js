@@ -5,7 +5,20 @@ var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 var bodyParser = require('body-parser');
-var search, cnt, count, date, post;
+var mysql = require('mysql');
+
+var connection = mysql.createConnection({
+    host: 'sql5.freemysqlhosting.net',
+    user: 'sql5115151',
+    password: 'iZauazDTDG',
+    database: 'sql5115151'
+});
+
+connection.connect();
+
+
+
+var search, cnt, count, date, post, text;
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
@@ -81,9 +94,24 @@ io.sockets.on('connection', function (socket) {
             
                 }else{
                 
-                io.sockets.emit('created',JSON.stringify(data.statuses[i].created_at));
-                io.sockets.emit('text',JSON.stringify(data.statuses[i].text));
-                io.sockets.emit('user',JSON.stringify(data.statuses[i].user.screen_name));
+                    io.sockets.emit('created',JSON.stringify(data.statuses[i].created_at));
+                    io.sockets.emit('text',JSON.stringify(data.statuses[i].text));
+                    io.sockets.emit('user',JSON.stringify(data.statuses[i].user.screen_name));
+                
+                    var tweet = {
+                        search: search,
+                        user: JSON.stringify(data.statuses[i].user.screen_name),
+                        text: JSON.stringify(data.statuses[i].text),
+                        date: JSON.stringify(data.statuses[i].created_at)
+                    };
+                
+                    var query = connection.query('insert into sql5115151.twitApp set ?',tweet,function(err,result){
+                        if (err) {
+                            console.error(err);
+                        }
+                        console.error(result);
+                    });
+
                 }
             } 
 
